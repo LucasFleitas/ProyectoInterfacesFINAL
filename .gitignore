@@ -1,0 +1,77 @@
+# Archivos del sistema operativo
+# macOS
+.DS_Store
+# Windows
+Thumbs.db
+# Linux
+*~
+
+# Archivos de configuración de IDEs y editores
+# JetBrains (IntelliJ, WebStorm, etc.)
+.idea/
+# Visual Studio Code
+.vscode/
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+# Eclipse
+.project
+.classpath
+# NetBeans
+nbproject/
+
+# Archivos de entorno
+.env               # Variables de entorno
+.env.local         # Variables de entorno locales
+.env.*             # Archivos de entorno con otros sufijos
+
+# Dependencias
+node_modules/      # Dependencias de Node.js
+bower_components/  # Dependencias de Bower
+vendor/            # Dependencias de Composer (PHP)
+
+# Archivos de construcción
+dist/              # Directorios de distribución o compilación
+build/             # Directorios de compilación
+out/               # Archivos generados
+*.tgz              # Archivos comprimidos generados en la construcción
+
+# Archivos de configuración de contenedores
+docker-compose.override.yml
+Dockerfile
+*.docker
+
+# Archivos de logs
+*.log              # Logs de cualquier tipo
+npm-debug.log      # Logs de npm
+yarn-debug.log     # Logs de Yarn
+yarn-error.log     # Logs de errores de Yarn
+
+# Archivos de test
+coverage/          # Directorios de cobertura de pruebas
+*.lcov             # Archivos de cobertura de pruebas en formato LCOV
+
+# Archivos generados por Python
+*.pyc              # Archivos compilados de Python
+*.pyo              # Archivos optimizados de Python
+__pycache__/       # Caché de Python
+
+# Archivos de compilación de Java
+*.class            # Archivos de clases de Java
+*.jar              # Archivos JAR de Java
+*.war              # Archivos WAR de Java
+
+# Archivos de C/C++ y otros lenguajes compilados
+*.o                # Archivos objeto de compilación
+*.a                # Archivos estáticos
+*.out              # Archivos de salida
+*.exe              # Ejecutables
+
+# Archivos generados por sistemas de gestión de bases de datos
+*.sqlite           # Archivos de bases de datos SQLite
+*.db               # Archivos de bases de datos
+
+# Archivos temporales
+*.swp              # Archivos temporales de vim
+*.swo              # Archivos temporales de vim
+*.bak              # Archivos de respaldo
