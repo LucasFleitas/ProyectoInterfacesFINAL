@@ -42,4 +42,53 @@ public class DatabaseHelper {
         PreparedStatement stmt = conn.prepareStatement(query);
         return stmt.executeQuery();
     }
+
+    public static List<Empleado> obtenerEmpleados() {
+        List<Empleado> empleados = new ArrayList<>();
+        String query = "SELECT id_empleado, nombre, cargo, fecha_contratacion FROM Empleados";
+    
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+    
+            while (rs.next()) {
+                Empleado empleado = new Empleado(
+                        rs.getInt("id_empleado"),
+                        rs.getString("nombre"),
+                        rs.getString("cargo"),
+                        rs.getString("fecha_contratacion")
+                );
+                empleados.add(empleado);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return empleados;
+    }
+
+    public static List<Producto> obtenerProductos() {
+        List<Producto> productos = new ArrayList<>();
+        String query = "SELECT id_producto, nombre, categoria, precio, stock FROM Productos";
+    
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+    
+            while (rs.next()) {
+                Producto producto = new Producto(
+                        rs.getInt("id_producto"),
+                        rs.getString("nombre"),
+                        rs.getString("categoria"),
+                        rs.getDouble("precio"),
+                        rs.getInt("stock")
+                );
+                productos.add(producto);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return productos;
+    }
+    
+    
 }
