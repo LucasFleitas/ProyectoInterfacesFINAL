@@ -1,0 +1,9 @@
+com\proyecto\Producto.class
+com\proyecto\DatabaseConnection.class
+com\proyecto\Venta.class
+com\proyecto\ReportePDF.class
+com\proyecto\Empleado.class
+com\proyecto\JavaFXApp.class
+com\proyecto\GraficoVentas.class
+com\proyecto\DatabaseHelper.class
+com\proyecto\ReporteExcel.class

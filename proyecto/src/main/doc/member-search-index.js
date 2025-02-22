@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"com.proyecto","c":"DatabaseConnection","l":"closeConnection()"},{"p":"com.proyecto","c":"DatabaseConnection","l":"DatabaseConnection()","u":"%3Cinit%3E()"},{"p":"com.proyecto","c":"DatabaseConnection","l":"getConnection()"}];updateSearchResults();
