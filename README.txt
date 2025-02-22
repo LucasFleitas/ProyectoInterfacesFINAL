@@ -30,3 +30,64 @@ Problemas comunes
 No se encuentra JavaFX: Si obtienes un error indicando que JavaFX no se encuentra, asegúrate de que la ruta proporcionada en el comando para --module-path sea correcta y que los archivos .jar de JavaFX estén en la carpeta especificada.
 
 Problemas con la versión de Java: Si no estás usando la versión correcta de Java (JDK 23), descarga e instala JDK 23 desde el sitio oficial de Oracle.
+
+Base De Datos utilizada en MySQL:
+Usuario: root
+Contraseña: root
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DROP DATABASE NegocioDB;
+CREATE DATABASE NegocioDB;
+USE NegocioDB;
+
+-- Crear la tabla Productos
+CREATE TABLE Productos (
+    id_producto INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    categoria VARCHAR(100) NOT NULL,
+    precio DECIMAL(10,2) NOT NULL,
+    stock INT NOT NULL
+);
+
+-- Crear la tabla Empleados
+CREATE TABLE Empleados (
+    id_empleado INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    cargo VARCHAR(100) NOT NULL,
+    fecha_contratacion DATE NOT NULL
+);
+
+-- Crear la tabla Ventas
+CREATE TABLE Ventas (
+    id_venta INT AUTO_INCREMENT PRIMARY KEY,
+    id_empleado INT NOT NULL,
+    id_producto INT NOT NULL,
+    cantidad INT NOT NULL,
+    fecha_venta DATE NOT NULL,
+    total_venta DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (id_empleado) REFERENCES Empleados(id_empleado) ON DELETE CASCADE,
+    FOREIGN KEY (id_producto) REFERENCES Productos(id_producto) ON DELETE CASCADE
+);
+
+INSERT INTO Productos (nombre, categoria, precio, stock) VALUES 
+('Laptop HP', 'Electrónica', 1200.50, 10),
+('Smartphone Samsung', 'Electrónica', 850.00, 15),
+('Impresora Epson', 'Oficina', 350.75, 8),
+('Silla Ergonómica', 'Muebles', 250.00, 20),
+('Monitor LG 24"', 'Electrónica', 300.00, 12);
+
+INSERT INTO Empleados (nombre, cargo, fecha_contratacion) VALUES 
+('Juan Pérez', 'Vendedor', '2022-05-10'),
+('María Gómez', 'Gerente', '2021-03-22'),
+('Carlos Rodríguez', 'Cajero', '2023-01-15'),
+('Ana López', 'Vendedor', '2022-11-30'),
+('David Fernández', 'Vendedor', '2023-06-18');
+
+INSERT INTO Ventas (id_empleado, id_producto, cantidad, fecha_venta, total_venta) VALUES 
+(1, 1, 2, '2024-02-10', 2401.00),  -- Juan vendió 2 laptops HP
+(2, 3, 1, '2024-02-12', 350.75),   -- María vendió 1 impresora Epson
+(3, 2, 3, '2024-02-14', 2550.00),  -- Carlos vendió 3 smartphones Samsung
+(4, 5, 2, '2024-02-15', 600.00),   -- Ana vendió 2 monitores LG
+(5, 4, 4, '2024-02-16', 1000.00);  -- David vendió 4 sillas ergonómicas
+
